@@ -1,4 +1,4 @@
-// Exercice name : Utilisation de forEach (lol)
+// Exercice name : loop for (lol)
 // @ts-check
 // --
 import Game from "../../Game.js";
