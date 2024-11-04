@@ -5,4 +5,3 @@
 - [loop for (lol)](./starter_3.js)
 - [condition](./starter_4.js)
 - [variables et calculs](./starter_5.js)
-- [concatenation](./starter_6.js)
