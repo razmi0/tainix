@@ -10,4 +10,5 @@ const game = new Game(API_KEY, exoCode);
 
 game.start();
 
+const stop = 50;
 game.output(new Array(stop).fill(() => 0).reduce((acc, _, i) => acc + i + 1, 0));
