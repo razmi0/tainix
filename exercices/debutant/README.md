@@ -1,3 +1,2 @@
-# Exercices débutant
+# Debutant
 
-- [](./)
