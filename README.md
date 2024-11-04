@@ -6,3 +6,8 @@
 ## Notes
 
 ## Exercices
+
+- [Starter](./exercices/starter/)
+- [Debutant](./exercices/debutant/)
+- [Intermediaire](./exercices/intermediaire/)
+- [Avance](./exercices/avance/)
