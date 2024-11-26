@@ -72,6 +72,10 @@ const stars = [
 ];
 // NE PAS TOUCHER
 
+/**
+ * Fonction de recherche de correspondance entre les lettres de favoriteLetters et les lettres de chaque élément de stars
+ */
+
 function getCorrespondance(stars, favoriteLetters) {
   let matchingStarsCount = [];
   let fav = favoriteLetters.split("");
