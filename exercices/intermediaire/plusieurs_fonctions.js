@@ -1,94 +1,39 @@
 // NE PAS TOUCHER
-const favoriteLetters = "YOH";
-const stars = [
-  "X-DKMUE",
-  "X-BTGFA",
-  "X-QGSRW",
-  "X-YZYUF",
-  "X-HLJPB",
-  "X-ZDSKG",
-  "X-ZEQBO",
-  "X-ZUVGQ",
-  "X-PBGRU",
-  "X-ZISBY",
-  "X-CIDKL",
-  "X-PJORH",
-  "X-GYPUE",
-  "X-YCFVS",
-  "X-VCNYG",
-  "X-CADVJ",
-  "X-ZQCIT",
-  "X-GWOLX",
-  "X-HWEZA",
-  "X-ZIHXK",
-  "X-OHZBR",
-  "X-BXRLC",
-  "X-DHQYU",
-  "X-FAJBC",
-  "X-DUIEG",
-  "X-RWUGZ",
-  "X-SHBTF",
-  "X-MVSTH",
-  "X-WMUDK",
-  "X-MWQAK",
-  "X-WSALI",
-  "X-XMHNL",
-  "X-XIFWM",
-  "X-CVRIS",
-  "X-EITVP",
-  "X-OTMQI",
-  "X-XKIDR",
-  "X-VCBEO",
-  "X-KJMCS",
-  "X-PLVER",
-  "X-JLEOM",
-  "X-RCXMJ",
-  "X-YDVCS",
-  "X-FTXQC",
-  "X-NKMFW",
-  "X-ALUNH",
-  "X-IYREO",
-  "X-YBXQP",
-  "X-GMRYD",
-  "X-OSAGL",
-  "X-BLAOV",
-  "X-FZLJY",
-  "X-HPRMW",
-  "X-LNKDA",
-  "X-DNQEO",
-];
+const favoriteLetters = 'KIB';
+const stars = ['X-PQFZT', 'X-BUWGH', 'X-YUJCR', 'X-YRGID', 'X-TZYSA', 'X-UIZVE', 'X-KRZWQ', 'X-KWODS', 'X-AEWJB', 'X-QBFSY', 'X-EBPHX', 'X-ICGFI', 'X-WVMIP', 'X-VXCKR', 'X-MAKWS', 'X-UIBWP', 'X-SIVFD', 'X-EIBJV', 'X-ARYVE', 'X-SWOVB', 'X-RCMWG', 'X-PRVMF', 'X-ULOSF', 'X-IXOFZ', 'X-CRDAF', 'X-UYMDQ', 'X-HFJPR', 'X-HKESU', 'X-PKVWT', 'X-PQMCO', 'X-VMXNK', 'X-PKAIW', 'X-XBQPC', 'X-KYOET', 'X-GXERD', 'X-FNCGZ', 'X-MBHGF', 'X-CYELT', 'X-QIRPM', 'X-JENFC', 'X-YGUTV', 'X-IAEQU', 'X-AIJUF', 'X-QIZPA', 'X-BNJYS', 'X-BWLJZ', 'X-HTDUG', 'X-MFYIN', 'X-YZBVK', 'X-VSDZW', 'X-KJZWC', 'X-CKTUA', 'X-XWNPZ', 'X-IUONE', 'X-CEXFV', 'X-XJWZR', 'X-MGCRJ', 'X-NWAYK', 'X-CLYAO', 'X-HYDKA', 'X-WSDUY', 'X-BEQHR'];
 // NE PAS TOUCHER
 
-const getOccurences = (star, favoriteLetters) => {
-  const codeStar = star.substring(2).split("");
-  const letters = favoriteLetters.split("");
-  let occurence = 0;
-  letters.forEach((letter) => {
-    codeStar.forEach((code) => {
-      if (code === letter) {
-        occurence++;
+function getCorrespondance(stars, favoriteLetters) {
+
+  let matchingStarsCount = []
+  let fav = favoriteLetters.split('')
+  let matchCount
+
+  for (let j = 0; j < stars.length; j++) {
+    matchCount = 0
+
+    for (let i = 0; i < fav.length; i++) {
+      if (stars[j].includes(fav[i])) {
+        matchCount++
       }
-    });
-  });
-  return occurence;
-};
+    }
 
-const getScore = (occurence) => {
-  if (occurence < 1) {
-    return 0;
-  } else if (occurence < 2) {
-    return 10;
-  } else if (occurence < 3) {
-    return 100;
-  } else if (occurence < 4) {
-    return 1000;
+    matchingStarsCount.push(matchCount)
   }
-  throw Error("Wrong dataset format");
-};
 
-console.log(
-  stars.reduce((sum, star) => {
-    const occurence = getOccurences(star, favoriteLetters);
-    return sum + getScore(occurence);
-  }, 0)
-);
+  return matchingStarsCount
+}
+let matchingStarsCount = getCorrespondance(stars, favoriteLetters)
+
+
+function calcPoint(matchingStarsCount) {
+  let sum = 0
+  let grid = [0, 10, 100, 1000]
+  for (let i = 0; i < matchingStarsCount.length; i++) {
+    sum += grid[matchingStarsCount[i]]
+  }
+
+  return sum
+}
+
+console.log(calcPoint(matchingStarsCount))
