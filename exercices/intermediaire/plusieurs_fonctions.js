@@ -7,7 +7,7 @@ function getCorrespondance(stars, favoriteLetters) {
 
   let matchingStarsCount = []
   let fav = favoriteLetters.split('')
-  let matchCount
+  let matchCount = 0
 
   for (let j = 0; j < stars.length; j++) {
     matchCount = 0
